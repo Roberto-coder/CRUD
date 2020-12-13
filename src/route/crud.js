@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const pool = require('../db');
+const pool = require('../db');//Aqui se manda a llamar la bd
 
 router.get('/add', async(req , res) =>{
     //res.send('Listo');
