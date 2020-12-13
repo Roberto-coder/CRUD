@@ -26,7 +26,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 
 // routes
-app.use('/STAR',require('./route/crud'));
+app.use('https://starcrud.herokuapp.com',require('./route/crud'));//'STAR'
 
 // Public 
 app.use(express.static(path.join(__dirname, 'public')));

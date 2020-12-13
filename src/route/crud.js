@@ -21,13 +21,13 @@ router.post('/addarticulo',  async(req , res) => {
     console.log(newArticulo);
     await pool.query('INSERT INTO articulo set ?', [newArticulo]);
     //res.send('Guardado en MySQL');
-    res.redirect('/STAR/add');
+    res.redirect('/https://starcrud.herokuapp.com/add');
 });
 
 router.get('/delete/:id', async(req,res)=>{
     const {id} = req.params;
     await pool.query('DELETE FROM articulo WHERE id = ?', [id]);
-    res.redirect('/STAR/add');
+    res.redirect('/https://starcrud.herokuapp.com/add');
 });
 router.get('/edit/:id', async (req, res) => {
     const {id} = req.params;
@@ -45,7 +45,7 @@ router.post('/edit/:id', async (req, res) => {
         descripcion,
     };
     await pool.query('UPDATE  articulo set ? WHERE id = ?', [newArticulo, id]);
-    res.redirect('/STAR/add');
+    res.redirect('/https://starcrud.herokuapp.com/add');//'/STAR/add'
 });
 /*
 router.post('/quaryarticulo',  async(req , res) => {
