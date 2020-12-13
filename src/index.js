@@ -1,9 +1,9 @@
 const express = require('express');
 const morgan  = require('morgan');
-const server = http.createServer(express);
+//const server = http.createServer(express);
 const exhbs   = require('express-handlebars');
 const path    = require('path');
-const io = socketio.listen(server);
+//const io = socketio.listen(server);
 const { database } = require('./keys');
 
 // Inicializacion
@@ -37,4 +37,4 @@ app.listen(app.get('port'), () => {
     console.log('server on port: ', app.get('port'));
 });
 
-require('sockets')(io);
+//require('sockets')(io);
