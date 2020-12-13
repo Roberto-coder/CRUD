@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+//var socket = io.connect('localhost:6646/STAR/add', { 'forceNew': true });
 
 const pool = require('../db');//Aqui se manda a llamar la bd
 

@@ -1,13 +1,16 @@
+//var socket = io.connect('localhost:6646/STAR/add', { 'forceNew': true });
+//https://starcrud.herokuapp.com/STAR/add
 const express = require('express');
 const morgan  = require('morgan');
-//const server = http.createServer(express);
-const exhbs   = require('express-handlebars');
-const path    = require('path');
-//const io = socketio.listen(server);
-const { database } = require('./keys');
-
 // Inicializacion
 const app = express();
+const server = require('http').Server(app)
+const exhbs   = require('express-handlebars');
+const path    = require('path');
+const io = require('socket.io')(server);
+const { database } = require('./keys');
+
+
 
 
 //settings
