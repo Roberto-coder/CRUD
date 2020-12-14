@@ -47,20 +47,20 @@ router.post('/edit/:id', async (req, res) => {
     };
     await pool.query('UPDATE  articulo set ? WHERE id = ?', [newArticulo, id]);
     res.redirect('/STAR/add');//'/STAR/add'
+    const articulo = await pool.query('SELECT * FROM articulo');
+    
+    res.render('partial/index', {articulo});
 });
-/*
+
 router.post('/quaryarticulo',  async(req , res) => {
-    const {nombre, img, categoria, descripcion} = req.body;
-    const newArticulo = {
-        nombre,
-        img,
-        categoria,
-        descripcion,
-    };   
-    console.log(newArticulo);
-    await pool.query('INSERT INTO articulo set ? WHERE id = ?', [newArticulo]);
-    //res.send('Guardado en MySQL');
-    res.redirect('/STAR/add');
-});*/
+    const {nombre} = req.params;
+    const nombre = await pool.query('SELECT * FROM articulo where nombre = ?');
+    const where = 'where 1=1'
+    if(nombre!=null){
+        nombre=this.mysql_real_scape_string(nombre);
+        where=where+" and nombre={nombre} ";
+    }
+    res.render('partial/index', {nombre});
+});
 
 module.exports = router;
